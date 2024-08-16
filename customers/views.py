@@ -22,7 +22,7 @@ def show_account(request):
             # Create a new user account
             user = User.objects.create_user(username=username, password=password, email=email)
             # create a customer account
-            customer = Customer.objects.create(user=user, address=address, phone=phone)
+            customer = Customer.objects.create(name=username ,user=user, address=address, phone=phone)
             messages.success(request, 'Account created successfully')
         except Exception as e:
             error_message = 'duplicate username or invalid credentials'
